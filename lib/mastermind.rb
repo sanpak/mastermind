@@ -65,7 +65,8 @@ end
 class Game
   attr_reader :secret_code
   def initialize(code = nil)
-
+    @secret_code = code
+    @secret_code = Code.random if code == nil
   end
 
   def display_matches
