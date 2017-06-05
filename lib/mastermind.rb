@@ -63,12 +63,21 @@ class Code
 end
 
 class Game
-  attr_reader :secret_code
+  attr_reader :secret_code, :input, :output
   def initialize(code = nil)
     @secret_code = code
     @secret_code = Code.random if code == nil
   end
 
-  def display_matches
+  def get_guess
+    puts "give me a guess"
+    input = gets.chomp
+    get_guess = Code.parse(input)
+  end
+
+  def display_matches(code)
+    puts "_________________"
+    puts "[\"#{code.pegs[0]}\", \"#{code.pegs[1]}\", \"#{code.pegs[2]}\", \"#{code.pegs[3]}\"]"
+    puts "_________________"
   end
 end
