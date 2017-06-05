@@ -43,9 +43,13 @@ class Code
     match_count
   end
 
+  def ==(other_code)
+      puts "______return true?__________"
+      p other_code == @pegs
+  end
+
   def near_matches(other_code)
     match_count_near = 0
-    puts "______near_matches__________"
     other_code.pegs.each_with_index do |peg,idx|
       # p peg
       # p idx
