@@ -9,7 +9,7 @@ class Code
 
   def [](pegs)
     puts "______[]____________"
-    p @pegs[pegs]
+    @pegs[pegs]
   end
 
   def self.random
@@ -31,9 +31,18 @@ class Code
   end
 
   def exact_matches(other_code)
-    # puts "___________other code __________"
+
     # p other_code
-    other_code.pegs == code.pegs
+    puts "___________other_code__________"
+    match_count = 0
+    other_code.pegs.each_with_index do |peg,idx|
+      match_count += 1 if @pegs[idx] == peg
+    end
+    # (0...other_code.pegs.length) do |idx|
+    #   # return 0 unless @pegs.include?(other_code.pegs[idx])
+    #   # match_count += 1 if @pegs[idx] == other_code.pegs[idx]
+    # end
+    match_count
   end
 
   def near_matches(other_code)
@@ -44,5 +53,8 @@ class Game
   attr_reader :secret_code
   def initialize(code = nil)
 
+  end
+
+  def display_matches
   end
 end
