@@ -7,9 +7,11 @@ class Code
     puts "_________________"
   end
 
-  def []
+  def [](pegs)
+    puts "______[]____________"
+    p @pegs[pegs]
   end
-  
+
   def self.random
     first_peg = PEGS[rand(6)]
     second_peg = PEGS[rand(6)]
