@@ -31,9 +31,7 @@ class Code
   end
 
   def exact_matches(other_code)
-
     # p other_code
-    puts "___________other_code__________"
     match_count = 0
     other_code.pegs.each_with_index do |peg,idx|
       match_count += 1 if @pegs[idx] == peg
@@ -46,6 +44,17 @@ class Code
   end
 
   def near_matches(other_code)
+    match_count_near = 0
+    puts "______near_matches__________"
+    other_code.pegs.each_with_index do |peg,idx|
+      # p peg
+      # p idx
+      next if other_code.pegs[idx] == other_code.pegs[idx + 1]
+      match_count_near += 1 if @pegs.include?(peg) && other_code.pegs[idx] != @pegs[idx]
+      # p @pegs.index(peg)
+      # p @pegs.include?(peg)
+    end
+    match_count_near
   end
 end
 
