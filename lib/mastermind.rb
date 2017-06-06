@@ -2,13 +2,10 @@ class Code
   PEGS = { 0 => "r", 1 => "g", 2 => "b", 3 => "y", 4 => "o", 5 => "p" }
   attr_reader :pegs
   def initialize(pegs)
-    puts "_________________"
     p @pegs = pegs
-    puts "_________________"
   end
 
   def [](pegs)
-    puts "______[]____________"
     @pegs[pegs]
   end
 
@@ -76,8 +73,16 @@ class Game
   end
 
   def display_matches(code)
-    puts "_________________"
-    puts "[\"#{code.pegs[0]}\", \"#{code.pegs[1]}\", \"#{code.pegs[2]}\", \"#{code.pegs[3]}\"]"
-    puts "_________________"
+    # puts "exact" if code.pegs == @secret_code.pegs
+    puts "near matches" if @secret_code.near_matches(code) > 0
+    puts "exact matches" if @secret_code.exact_matches(code) > 0
+
+    # puts "_________________"
+    # puts "[\"#{code.pegs[0]}\", \"#{code.pegs[1]}\", \"#{code.pegs[2]}\", \"#{code.pegs[3]}\"]"
+    # puts "_________________"
+    # if @secret_code.pegs == code.pegs
+    #   puts "[\"#{@secret_code.pegs[0]}\", \"#{@secret_code.pegs[1]}\", \"#{@secret_code.pegs[2]}\", \"#{@secret_code.pegs[3]}\"]"
+    # end
+    # p @secret_code
   end
 end
