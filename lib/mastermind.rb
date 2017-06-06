@@ -74,9 +74,9 @@ class Game
 
   def display_matches(code)
     # puts "exact" if code.pegs == @secret_code.pegs
-    puts "near matches" if @secret_code.near_matches(code) > 0
-    puts "exact matches" if @secret_code.exact_matches(code) > 0
-
+    near_matches = @secret_code.near_matches(code)
+    exact_matches = @secret_code.exact_matches(code)
+    puts "#{near_matches} near matches, #{exact_matches} exact matches"
     # puts "_________________"
     # puts "[\"#{code.pegs[0]}\", \"#{code.pegs[1]}\", \"#{code.pegs[2]}\", \"#{code.pegs[3]}\"]"
     # puts "_________________"
