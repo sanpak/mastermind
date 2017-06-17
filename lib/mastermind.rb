@@ -95,7 +95,7 @@ class Game
       display_matches(@guess)
       # display_matches(get_guess)
     end
-    puts "secret_code was #{@secret_code}"
+    puts "secret_code was #{@secret_code.pegs}"
   end
 end
 if __FILE__ == $PROGRAM_NAME
