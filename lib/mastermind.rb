@@ -90,12 +90,12 @@ class Game
   end
 
   def play
-    p @secret_code 
     until over?
       @guess = get_guess
       display_matches(@guess)
       # display_matches(get_guess)
     end
+    puts "secret_code was #{@secret_code}"
   end
 end
 if __FILE__ == $PROGRAM_NAME
