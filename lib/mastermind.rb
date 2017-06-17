@@ -2,7 +2,7 @@ class Code
   PEGS = { 0 => "r", 1 => "g", 2 => "b", 3 => "y", 4 => "o", 5 => "p" }
   attr_reader :pegs
   def initialize(pegs)
-    p @pegs = pegs
+    @pegs = pegs
   end
 
   def [](pegs)
@@ -41,8 +41,7 @@ class Code
   end
 
   def ==(other_code)
-      puts "______return true?__________"
-      p other_code == @pegs
+      other_code == @pegs
   end
 
   def near_matches(other_code)
@@ -85,4 +84,21 @@ class Game
     # end
     # p @secret_code
   end
+
+  def over?
+    @guess == @secret_code
+  end
+
+  def play
+    p @secret_code 
+    until over?
+      @guess = get_guess
+      display_matches(@guess)
+      # display_matches(get_guess)
+    end
+  end
+end
+if __FILE__ == $PROGRAM_NAME
+  game = Game.new
+  game.play
 end
